@@ -1,0 +1,52 @@
+import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import React from 'react';
+import Home from './Home';
+import {BrowserRouter,Route,Routes}from "react-router-dom";
+import AboutPage from './About';
+import Navbar from "./Navbar";
+import ContactUs from './Contact';
+import Login from './Login';
+import BookNow from './Book';
+import BloodDonation from './BloodDonation';
+import Insurance from './Insurance';
+import RegisterDoner from './RegisterDoner';
+import FindDoner from"./FindDoner";
+import Register from "./Register";
+import LoginUser from "./LoginUser";
+import Footer from './Footer';
+import DriverLogin from './DriverLogin';
+import GetStarted from './GetStarted';
+import Opd from './Opd';
+function App() {
+  return (
+    <div >
+    <Navbar/>
+   <BrowserRouter>
+    <Routes>
+    <Route exact path="/Home" element={<Home></Home>}></Route>
+    <Route exact path="/" element={<Home></Home>}></Route>
+    <Route exact path="/About" element={<AboutPage/>}></Route>
+    <Route exact path="/Contact" element={<ContactUs></ContactUs>}></Route>
+    <Route exact path="/Login" element={<Login></Login>}></Route>
+    <Route exact path="/Book" element={<BookNow></BookNow>}></Route>
+    <Route exact path="/BloodDonation" element={<BloodDonation></BloodDonation>}></Route>
+    <Route exact path="/Insurance" element={<Insurance></Insurance>}></Route>
+    <Route exact path="/RegisterDoner" element={<RegisterDoner></RegisterDoner>}></Route>
+    <Route exact path="/FindDoner" element={<FindDoner></FindDoner>}></Route>
+    <Route exact path="/Register" element={<Register></Register>}></Route>
+    <Route exact path="/LoginUser" element={<LoginUser></LoginUser>}></Route>
+   <Route exact path=".DriverLogin" element={<DriverLogin></DriverLogin>}></Route>
+  <Route exact path='GetStarted' element={<GetStarted></GetStarted>}></Route>
+  <Route exact path="Opd" element={<Opd></Opd>}></Route>
+    </Routes>
+   <Footer></Footer>
+  </BrowserRouter>
+
+    
+  </div>
+  );
+}
+
+export default App;
