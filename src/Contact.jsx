@@ -1,101 +1,122 @@
-import react from "react";
+import React, { useEffect, useState } from "react";
 import web from "../src/images/login.png";
 import photo from "../src/images/contact.png";
-function ContactUs()
-{
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+function ContactUs() {
+const [name,setName]=useState('');
+const [phone,setPhone]=useState('');
+const [email,setEmail]=useState('');
+const [msg,setMessage]=useState('');
 
-    return (
-        <>
-        <div className="row">
-        <div class="col-md-3">
-           
-          
-            <img src={photo} class="img-fluid" alt="Responsive image"/>
-          </div>
-        <section class="vh-100 col" >
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-9">
-
-        <h1 class=" mb-4 text-center">Contact Us</h1>
-
-        <div class="card border" >
-          <div class="card-body">
-
-            <div class="row align-items-center pt-4 pb-3">
-              <div class="col-md-3 ps-5">
-
-                <h6 class="mb-0">Full name</h6>
-
-              </div>
-              <div class="col-md-9 pe-5">
-
-                <input type="text" class="form-control form-control-lg" />
-
-              </div>
-            </div>
-
-            <hr class="mx-n3"/>
-            <div class="row align-items-center pt-4 pb-3">
-              <div class="col-md-3 ps-5">
-
-                <h6 class="mb-0">Phone No</h6>
-
-              </div>
-              <div class="col-md-9 pe-5">
-
-                <input type="number" class="form-control form-control-lg"placeholder="@12345" />
-
-              </div>
-            </div>
-
-            <hr class="mx-n3"/>
-
-            <div class="row align-items-center py-3">
-              <div class="col-md-3 ps-5">
-
-                <h6 class="mb-0">Email address</h6>
-
-              </div>
-              <div class="col-md-9 pe-5">
-
-                <input type="email" class="form-control form-control-lg" placeholder="example@example.com" />
-
-              </div>
-            </div>
-
-            <hr class="mx-n3"/>
-
-            <div class="row align-items-center py-3">
-              <div class="col-md-3 ps-5">
-
-                <h6 class="mb-0">Full name</h6>
-
-              </div>
-              <div class="col-md-9 pe-5">
-
-                <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
-
-              </div>
-            </div>
-
-            <hr class="mx-n3"/>          
-
-            <hr class="mx-n3"/>
-
-            <div class="px-5 py-4">
-              <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
-            </div>
-
-          </div>
+  const handleSubmit = async () => {
+    const resp = await axios.post("http://localhost:3001/contactus", {Name: name, Phoneno: phone, Email:email, Message: msg})
+    console.log(resp);
+  }
+  return (
+    <>
+      <div className="row">
+        <div className="col-md-3">
+          <img src={photo} className="img-fluid" alt="Responsive image" />
         </div>
+        <section className="vh-100 col">
+          <div className="container h-100">
+            <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col-xl-9">
+                <h1 className=" mb-4 text-center">Contact Us</h1>
 
+                <div className="card border">
+                  <div className="card-body">
+                    <div className="row align-items-center pt-4 pb-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Full name</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          placeholder="@abc "
+                          name="Name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+                    <div className="row align-items-center pt-4 pb-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Phone No</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          placeholder="@12345"
+                          name="Phoneno"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <hr className="mx-n3" />
+
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Email address</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="Email"
+                          className="form-control form-control-lg"
+                          placeholder="example@example.com"
+                          name="Email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Message</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <textarea
+                          className="form-control form-control-lg"
+                          placeholder="Message..."
+                          name="Message"
+                          value={msg}
+                          onChange={(e) => setMessage(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <hr className="mx-n3" />
+
+                    <hr className="mx-n3" />
+
+                    <div className="px-5 py-4">
+                      <button type="button" className="btn btn-primary btn-lg"
+                       onClick={() => handleSubmit()}>
+                        
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
-  </div>
-</section>
-        </div>
-        </>
-    )
+    </>
+  );
 }
-export default ContactUs
+export default ContactUs;

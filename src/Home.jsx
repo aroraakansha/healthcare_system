@@ -6,6 +6,7 @@ import two from "../src/images/hospital2.png";
 import ambulance from "../src/images/ambulance.png";
 import image from "../src/images/image3.png";
 import GetStarted from "./GetStarted";
+import Ambulance from "./Ambulance";
 function Home() {
     return (
       <div >
@@ -20,6 +21,7 @@ function Home() {
         <h1>Experts To Provive Advance </h1>
         <h1><strong className="br">Medical Treatments And Facilities</strong></h1>
         <a href="/GetStarted" className="my-5" >Get Started</a>
+      
         </div>
         <div className="col-lg-6 order-1 order-lg-2 header-img">
         <img src={web} className="img=fluid animated" alt="home-img"/></div>
@@ -61,6 +63,7 @@ function Home() {
         </section>
        <section className="mx-5 my-5">
        <div class="gap">
+      
        <h3 className="text-center text-primary mx-5 my-5">At Felix, We Are Equipped To Handle Critically Ill Or Injured Patients With Life-Threatening Conditions
        </h3>
        <h2 id="right"><img className="img-fluid" src={ambulance}></img> 24X7 Emergenct Number<button type="button"class="btn btn-danger">Emergency</button></h2>

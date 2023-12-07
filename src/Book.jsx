@@ -11,27 +11,33 @@ function BookNow()
         <div className="row">
         <div className="col-md-6 col-10 mx-auto">
         <form>
-        <div class="mb-3">
-   <label for="exampleFormControlInput1" class="form-label">Name</label>
-   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Full Name"/>
+        <div className="mb-3">
+   <label for="exampleFormControlInput1" className="form-label">Name</label>
+   <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter Your Full Name"/>
  </div>
- <div class="mb-3">
- <label for="exampleFormControlInput1" class="form-label">Phone No</label>
- <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="mobileno@12345"/>
+ <div className="mb-3">
+ <label for="exampleFormControlInput1" className="form-label">Phone No</label>
+ <input type="number" className="form-control" id="exampleFormControlInput1" placeholder="mobileno@12345"/>
  </div>
- <div class="mb-3">
- <label for="exampleFormControlInput1" class="form-label">Email address</label>
- <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+ <div className="mb-3">
+ <label for="exampleFormControlInput1" className="form-label">Email address</label>
+ <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+ </div>
+ <div className="mb-3">
+ <label for="exampleFormControlInput1" className="form-label">Pincode</label>
+ <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+ </div>
+ <div className="mb-3">
+ <label for="exampleFormControlInput1" className="form-label">State</label>
+ <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+ </div>
+ <div className="mb-3">
+ <label for="exampleFormControlInput1" className="form-label">District</label>
+ <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
  </div>
 
- <select class="form-select" aria-label="Default select example">
-  <option selected>state</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>
- <div class="col-12">
- <button class="btn btn-primary" type="submit">Submit</button>
+ <div className="col-12">
+ <button className="btn btn-primary mt-2" type="submit">Submit</button>
  </div>
         </form>
         </div>

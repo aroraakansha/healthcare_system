@@ -29,7 +29,7 @@
           <li><a className="dropdown-item text-danger" href="#">Emergency</a></li>
             <li><a className="dropdown-item" href="/BloodDonation">Blood Donation</a></li>
             <li><a className="dropdown-item" href="/Insurance">Insurance</a></li>
-            <li><a className="dropdown-item" href="#">Labs</a></li>
+            <li><a className="dropdown-item" href="/Labs">Labs</a></li>
             <li><a className="dropdown-item" href="/Opd">OPD</a></li>
           
             <li><hr className="dropdown-divider"/></li>
@@ -41,10 +41,9 @@
          Hospitals and Departments
         </a>
         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a className="dropdown-item" href="#">Action</a></li>
-          <li><a className="dropdown-item" href="#">Another action</a></li>
-          <li><hr className="dropdown-divider"/></li>
-          <li><a className="dropdown-item" href="#">Something else here</a></li>
+          <li><a className="dropdown-item" href="#">Government Hospital</a></li>
+          <li><a className="dropdown-item" href="#">Private Hospital</a></li>
+          <li><hr className="dropdown-divider"/></li>          
         </ul>
       </li>
      

@@ -19,9 +19,17 @@ import Footer from './Footer';
 import DriverLogin from './DriverLogin';
 import GetStarted from './GetStarted';
 import Opd from './Opd';
+import HospitalLogin from './HospitalLogin';
+import HospitalRegister from './HosRegister';
+import { ToastContainer } from 'react-toastify';
+import Labs from './Labs';
+import Ambulance from './Ambulance';
+import Bed from './Bed';
 function App() {
   return (
     <div >
+    <ToastContainer />
+
     <Navbar/>
    <BrowserRouter>
     <Routes>
@@ -40,7 +48,12 @@ function App() {
    <Route exact path=".DriverLogin" element={<DriverLogin></DriverLogin>}></Route>
   <Route exact path='GetStarted' element={<GetStarted></GetStarted>}></Route>
   <Route exact path="Opd" element={<Opd></Opd>}></Route>
-    </Routes>
+  <Route exact path="HospitalLogin" element={<HospitalLogin></HospitalLogin>}></Route>
+ <Route exact path="HosRegister"element={<HospitalRegister></HospitalRegister>}></Route>
+ <Route exact path="/Labs" element={<Labs></Labs>}></Route>
+ <Route exact path="/Ambulance" element={<Ambulance></Ambulance>}></Route>
+ <Route exact path="/Bed"element={<Bed></Bed>}></Route>
+   </Routes>
    <Footer></Footer>
   </BrowserRouter>
 

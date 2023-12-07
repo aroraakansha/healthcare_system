@@ -1,62 +1,198 @@
-import react from "react";
-function FindDoner()
-{
-    return (
-        <>
-        <div className="FindDoner">
-        <form class="row g-3">
-  <div class="col-md-4">
-    <label for="validationDefault01" class="form-label">First name</label>
-    <input type="text" class="form-control" id="validationDefault01"  required/>
-  </div>
-  <div class="col-md-4">
-    <label for="validationDefault02" class="form-label">Last name</label>
-    <input type="text" class="form-control" id="validationDefault02"  required/>
-  </div>
-  <div class="col-md-4">
-    <label for="validationDefaultUsername" class="form-label">Username</label>
-    <div class="input-group">
-      <span class="input-group-text" id="inputGroupPrepend2">@</span>
-      <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required/>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <label for="validationDefault03" class="form-label">City</label>
-    <input type="text" class="form-control" id="validationDefault03" required/>
-  </div>
-  <div class="col-md-3">
-    <label for="validationDefault04" class="form-label">State</label>
-    <select class="form-select" id="validationDefault04" required>
-      <option selected disabled value="">Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-3">
-    <label for="validationDefault05" class="form-label">Zip</label>
-    <input type="text" class="form-control" id="validationDefault05" required/>
-  </div>
-  <div class="col-12">
-  <div class="col-md-3">
-  <label for="validationDefault04" class="form-label">State</label>
-  <select class="form-select" id="validationDefault04" required>
-    <option selected disabled value="">Choose...</option>
-    <option>...</option>
-  </select>
-</div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required/>
-      <label class="form-check-label" for="invalidCheck2">
-        Agree to terms and conditions
-      </label>
-    </div>
-    
-  </div>
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </div>
-</form>
+import react, { useEffect, useState } from "react";
+import axios from "axios";
+import photo from "../src/images/contact.png";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
+import 'react-toastify/dist/ReactToastify.css';
+function FindDoner() {
+  const navigate = useNavigate();
+  const [name, setname] = useState("");
+  const [phone, setphone] = useState("");
+  const [email, setemail] = useState("");
+  const [address, setaddress] = useState("");
+  const [state, setstate] = useState("");
+  const [dist, setdist] = useState("");
+  const [bg, setbg] = useState("");
+  const handleSubmit = async () => {
+    const resp = await axios.post("http://localhost:3001/finddoner", {
+      Name: name,
+      Phoneno: phone,
+      Email: email,
+      Address: address,
+      State: state,
+      District: dist,
+      BloodGroup: bg,
+    });
+    console.log(resp);
+    toast.success(resp.data.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+      setTimeout(() => {
+        navigate("/Home");
+      },  6000)
+  };
+  return (
+    <>
+      <div className="row">
+        <div className="col-md-3">
+          <img src={photo} className="img-fluid" alt="Responsive image" />
         </div>
-        </>
-    )
+        <section className="vh-100 col">
+          <div className="container h-100">
+            <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col-xl-9">
+                <h1 className=" mb-4 text-center">Find Blood Doner</h1>
+
+                <div className="card border">
+                  <div className="card-body">
+                    <div className="row align-items-center pt-4 pb-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Full name</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="text"
+                         className="form-control form-control-lg"
+                          placeholder="@abc "
+                          name="Name"
+                          value={name}
+                          onChange={(e) => setname(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+                    <div className="row align-items-center pt-4 pb-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Phone No</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="text"
+                         className="form-control form-control-lg"
+                          placeholder="@12345"
+                          name="Phoneno"
+                          value={phone}
+                          onChange={(e) => setphone(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <hr className="mx-n3" />
+
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Email address</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="Email"
+                         className="form-control form-control-lg"
+                          placeholder="example@example.com"
+                          name="Email"
+                          value={email}
+                          onChange={(e) => setemail(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Address</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="Address"
+                         className="form-control form-control-lg"
+                          placeholder="@houseNo154"
+                          name="Address"
+                          value={address}
+                          onChange={(e) => setaddress(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">State</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="string"
+                         className="form-control form-control-lg"
+                          placeholder="@UttarPradesh"
+                          name="State"
+                          value={state}
+                          onChange={(e) => setstate(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">District</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="String"
+                         className="form-control form-control-lg"
+                          placeholder="@Ghaziabad"
+                          name="District"
+                          value={dist}
+                          onChange={(e) => setdist(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Blood Group</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="string"
+                         className="form-control form-control-lg"
+                          placeholder="@A+"
+                          name="BloodGroup"
+                          value={bg}
+                          onChange={(e) => setbg(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <hr className="mx-n3" />
+
+                    <div className="px-5 py-4">
+                      <button
+                        type="button"
+                       className="btn btn-primary btn-lg"
+                        onClick={() => handleSubmit()}
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
 }
 export default FindDoner;

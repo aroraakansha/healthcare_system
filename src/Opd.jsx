@@ -5,8 +5,8 @@ function Opd()
         <>
         <div><h1 className="text-center mt-5 col">Services Available At Every Hospitals</h1></div>
         <div className="container ">
-        <section class="border mx-5 my-5"><table class="table ">
-        <thead class="table-dark">
+        <section className="border mx-5 my-5"><table className="table ">
+        <thead className="table-dark">
           <tr>
           <td>Speciality</td>
           
